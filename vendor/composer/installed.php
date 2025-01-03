@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'hexlet/code',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'c6a5c868c4d3d3a73d9ce026544dc9f21ab560c5',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'docopt/docopt' => array(
+            'pretty_version' => '1.0.5',
+            'version' => '1.0.5.0',
+            'reference' => '0e3db660cf2f2eb07a83253790b7d97cdb398826',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../docopt/docopt',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'hexlet/code' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'c6a5c868c4d3d3a73d9ce026544dc9f21ab560c5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'lstrojny/functional-php' => array(
+            'pretty_version' => '1.17.0',
+            'version' => '1.17.0.0',
+            'reference' => 'e459d5cb307bc6e10e9e992c4e96bb71a0262506',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../lstrojny/functional-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

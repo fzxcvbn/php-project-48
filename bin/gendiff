@@ -6,9 +6,9 @@ $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 use function genDiff\genDiff;
 
 if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
+  require_once $autoloadPath1;
 } else {
-    require_once $autoloadPath2;
+  require_once $autoloadPath2;
 }
 
 $doc = <<<DOC

@@ -4,31 +4,33 @@ namespace genDiff;
 
 function genDiff($firstFile, $secondFile)
 {
-    $firstFile = file_get_contents($firstFile);
-    $secondFile = file_get_contents($secondFile);
-    $first = json_decode($firstFile, true);
-    $second = json_decode($secondFile, true);
+    $firstFile1 = file_get_contents($firstFile);
+    $secondFile2 = file_get_contents($secondFile);
+    $first = json_decode($firstFile1, true);
+    $second = json_decode($secondFile2 , true);
 
+
+    $keys = array_unique(array_merge(array_keys($first), array_keys($second)));
+    sort($keys);
     $result = [];
 
-    $qwerty1 = array_map(function($user1) {
-        $qwerty2 = array_map(function($user2) {
-            if($user1 == $user2) {
-                $result[] = $user1;
-            }
-            if ((array_keys($user1) == array_keys($user2)) && (array_values($user1) != array_values($user2))) {
-                $result[] = "-{$user1}";
-                $result[] = "+{$user2}";
-            }
-            if ($user1 != $user2) {
-                $result[] = "-{$user1}";
-                $result[] = "+{$user2}";
-            }
-            return $result;
-        }, $second);
-        return $result;
-    }, $first);
+    array_map(function ($key) use ($first, $second, &$result) {
+        $value1Exists = array_key_exists($key, $first);
+        $value2Exists = array_key_exists($key, $second);
 
-    $resultResult = json_encode($result);
-    return $resultResult;
+        if ($value1Exists && $value2Exists) {
+            if ($first[$key] === $second[$key]) {
+                $result[$key] = $first[$key];
+            } else {
+                $result['- ' . $key] = $first[$key];
+                $result['+ ' . $key] = $second[$key];
+            }
+        } else if ($value1Exists) {
+            $result['- ' . $key] = $first[$key];
+        } else if ($value2Exists) {
+            $result['+ ' . $key] = $second[$key];
+        }
+    }, $keys);
+
+    return json_encode($result);
 }
