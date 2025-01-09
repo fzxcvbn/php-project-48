@@ -6,3 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: composer exec --verbose phpcs -- --standard=PSR12 src bin
+        with:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
