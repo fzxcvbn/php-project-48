@@ -101,5 +101,6 @@ return array(
     'ab56e17b28e0838251fb1c661a411154' => $vendorDir . '/lstrojny/functional-php/src/Functional/With.php',
     '883cde4f940a7074b75c81b8c4e17796' => $vendorDir . '/lstrojny/functional-php/src/Functional/Zip.php',
     'ed68e79e67321b486d441991e1eed26a' => $vendorDir . '/lstrojny/functional-php/src/Functional/ZipAll.php',
-    'eaadceec85ce62f9b9f5a0207788b5ea' => $baseDir . '/genDiff.php',
+    'a7199bcdee0bc4da75ecc4204bc5ff82' => $baseDir . '/src/genDiff.php',
+    '0a4844c804ca3f8d2e5e453905ea2939' => $baseDir . '/src/Parsers.php',
 );

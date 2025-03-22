@@ -16,12 +16,17 @@ class DiffTest extends TestCase
     public function qwerty()
     {
         $firstJson = 'tests/fixtures/file1.json';
-        $secondJson = 'tests/fixtures/file2.json';
+        $secondJson = 'tests/fixtures/file2json';
 
-        $expected = trim(file_get_contents($this->getFixturePath('result')));
+        $firstYml = 'tests/fixtures/file1.yml';
+        $secondYml = 'tests/fixtures/file2.yml';
+
+        $expected = trim(file_get_contents($this->
+        getFixtureFullPath('result')));
 
         return [
             [$firstJson, $secondJson, $expected],
+            [$firstYml, $secondYml, $expected]
         ];
     }
 

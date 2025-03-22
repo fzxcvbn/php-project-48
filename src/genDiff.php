@@ -2,13 +2,21 @@
 
 namespace genDiff;
 
+use function Parsers\convertingFile;
+
 function genDiff($firstFile, $secondFile)
 {
+    $extensionFirst = pathinfo($firstFile, PATHINFO_EXTENSION);
+    $extensionSecond = pathinfo($secondFile, PATHINFO_EXTENSION);
+
     $firstFile1 = file_get_contents($firstFile);
     $secondFile2 = file_get_contents($secondFile);
-    $first = json_decode($firstFile1, true);
-    $second = json_decode($secondFile2 , true);
 
+    $conventing1 = convertingFile($firstFile1, $extensionFirst);
+    $conventing2 = convertingFile($secondFile2, $extensionSecond);
+
+    $first = get_object_vars($conventing1);
+    $second = get_object_vars($conventing2);
 
     $keys = array_unique(array_merge(array_keys($first), array_keys($second)));
     sort($keys);

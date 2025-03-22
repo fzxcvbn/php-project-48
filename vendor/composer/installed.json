@@ -1704,8 +1704,6 @@
         "sebastian/recursion-context",
         "sebastian/resource-operations",
         "sebastian/version",
-        "squizlabs/php_codesniffer",
-        "symfony/polyfill-ctype",
-        "symfony/yaml"
+        "squizlabs/php_codesniffer"
     ]
 }
