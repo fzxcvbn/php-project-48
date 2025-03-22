@@ -6,6 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
+    '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     '881492e87c0988fd821ad8b2c2cff6ec' => $vendorDir . '/lstrojny/functional-php/src/Functional/Ary.php',
     'e98d2a490b9e68bb1b78345f360cd543' => $vendorDir . '/lstrojny/functional-php/src/Functional/Average.php',
     'db9e7bb9418e08b215a40f1c35224b67' => $vendorDir . '/lstrojny/functional-php/src/Functional/ButLast.php',
