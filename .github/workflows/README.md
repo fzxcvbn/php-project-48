@@ -10,8 +10,5 @@ The hexlet-check.yml file is responsible for running these tests - do not delete
 [![Maintainability](https://api.codeclimate.com/v1/badges/97a85b243d3115e26757/maintainability)](https://codeclimate.com/github/fzxcvbn/php-project-48/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/97a85b243d3115e26757/test_coverage)](https://codeclimate.com/github/fzxcvbn/php-project-48/test_coverage)
 
-https://asciinema.org/a/ZrWQEKDHEzHNyqwUHvAGW2z23
-https://asciinema.org/a/d0iBLWg4pdkDu6mVu4JXWxKf7
-
 [![asciicast](https://asciinema.org/a/ZrWQEKDHEzHNyqwUHvAGW2z23.svg)](https://asciinema.org/a/ZrWQEKDHEzHNyqwUHvAGW2z23)
-[![asciicast](https://asciinema.org/a/d0iBLWg4pdkDu6mVu4JXWxKf7.svg)](https://asciinema.org/a/d0iBLWg4pdkDu6mVu4JXWxKf7)
+[![asciicast](https://asciinema.org/a/1PSALF9LpNJqDrjslitNKOWTs.svg)](https://asciinema.org/a/1PSALF9LpNJqDrjslitNKOWTs)
