@@ -3,8 +3,10 @@
 namespace genDiff;
 
 use function Parsers\convertingFile;
+use function Stylish\stylish;
+use function Functional\sort;
 
-function genDiff($firstFile, $secondFile)
+function genDiff($firstFile, $secondFile, $formatter = 'stylish')
 {
     $extensionFirst = pathinfo($firstFile, PATHINFO_EXTENSION);
     $extensionSecond = pathinfo($secondFile, PATHINFO_EXTENSION);
@@ -15,30 +17,31 @@ function genDiff($firstFile, $secondFile)
     $conventing1 = convertingFile($firstFile1, $extensionFirst);
     $conventing2 = convertingFile($secondFile2, $extensionSecond);
 
-    $first = get_object_vars($conventing1);
-    $second = get_object_vars($conventing2);
+    $tree = difference($conventing1, $conventing2);
+    return stylish($tree);
+}
 
-    $keys = array_unique(array_merge(array_keys($first), array_keys($second)));
-    sort($keys);
-    $result = [];
-
-    array_map(function ($key) use ($first, $second, &$result) {
-        $value1Exists = array_key_exists($key, $first);
-        $value2Exists = array_key_exists($key, $second);
-
-        if ($value1Exists && $value2Exists) {
-            if ($first[$key] === $second[$key]) {
-                $result[$key] = $first[$key];
-            } else {
-                $result['- ' . $key] = $first[$key];
-                $result['+ ' . $key] = $second[$key];
-            }
-        } else if ($value1Exists) {
-            $result['- ' . $key] = $first[$key];
-        } else if ($value2Exists) {
-            $result['+ ' . $key] = $second[$key];
+function difference($conventing1, $conventing2)
+{
+    $dataFile1 = get_object_vars($conventing1);
+    $dataFile2 = get_object_vars($conventing2);
+    $mergeKey = array_merge(array_keys($dataFile1), array_keys($dataFile2));
+    $sortKey = sort($mergeKey, fn ($left, $right) => strcmp($left, $right));
+    $uniqueKey = array_unique($sortKey);
+    return array_map(function ($key) use ($dataFile1, $dataFile2) {
+        if (!array_key_exists($key, $dataFile1)) {
+            return ['key' => $key, 'data2Value' => $dataFile2[$key], 'type' => 'added'];
+        } elseif (!array_key_exists($key, $dataFile2)) {
+            return ['key' => $key, 'data1Value' => $dataFile1[$key], 'type' => 'removed'];
         }
-    }, $keys);
-
-    return json_encode($result);
+        if (is_object($dataFile1[$key]) && is_object($dataFile2[$key])) {
+            $children = difference($dataFile1[$key], $dataFile2[$key]);
+            return ['key' => $key, 'type' => 'parent', 'children' => $children];
+        }
+        if ($dataFile1[$key] === $dataFile2[$key]) {
+            return  ['key' => $key, 'data1Value' => $dataFile1[$key], 'type' => 'unchanged'];
+        } else {
+            return ['key' => $key, 'data1Value' => $dataFile1[$key], 'data2Value' => $dataFile2[$key], 'type' => 'updated'];
+        }
+    }, $uniqueKey);
 }
