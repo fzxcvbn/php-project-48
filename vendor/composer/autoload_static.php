@@ -104,7 +104,8 @@ class ComposerStaticInitd625d2a8adb4a6f5c82f77d120885d04
         'ed68e79e67321b486d441991e1eed26a' => __DIR__ . '/..' . '/lstrojny/functional-php/src/Functional/ZipAll.php',
         'a7199bcdee0bc4da75ecc4204bc5ff82' => __DIR__ . '/../..' . '/src/genDiff.php',
         '0a4844c804ca3f8d2e5e453905ea2939' => __DIR__ . '/../..' . '/src/Parsers.php',
-        '3cea10ce1c768bf3ed3036859555a654' => __DIR__ . '/../..' . '/src/Stylish.php',
+        '6461b807e4ee82eefd6a0289818be010' => __DIR__ . '/../..' . '/src/Formatters/Stylish.php',
+        'd050924b2f042a7e8991c637b1d4747e' => __DIR__ . '/../..' . '/src/Formatters/Plain.php',
     );
 
     public static $prefixLengthsPsr4 = array (

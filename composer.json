@@ -9,7 +9,8 @@
         "files": [
             "src/genDiff.php",
             "src/Parsers.php",
-            "src/Stylish.php"
+            "src/Formatters/Stylish.php",
+            "src/Formatters/Plain.php"
         ]
     },
     "require-dev": {

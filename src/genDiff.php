@@ -4,6 +4,7 @@ namespace genDiff;
 
 use function Parsers\convertingFile;
 use function Stylish\stylish;
+use function Plain\plain;
 use function Functional\sort;
 
 function genDiff($firstFile, $secondFile, $formatter = 'stylish')
@@ -18,7 +19,12 @@ function genDiff($firstFile, $secondFile, $formatter = 'stylish')
     $conventing2 = convertingFile($secondFile2, $extensionSecond);
 
     $tree = difference($conventing1, $conventing2);
-    return stylish($tree);
+    if ($formatter == 'stylish') {
+        return stylish($tree);
+    }
+    if ($formatter == 'plain') {
+        return plain($tree);
+    }
 }
 
 function difference($conventing1, $conventing2)
