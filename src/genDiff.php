@@ -20,13 +20,13 @@ function genDiff(string $firstFile, string $secondFile, string $formatter = 'sty
     $conventing2 = convertingFile($secondFile2, $extensionSecond);
 
     $tree = difference($conventing1, $conventing2);
-    if ($formatter == 'stylish') {
+    if ($formatter === 'stylish') {
         return stylish($tree);
     }
-    if ($formatter == 'plain') {
+    if ($formatter === 'plain') {
         return plain($tree);
     }
-    if ($formatter == 'json') {
+    if ($formatter === 'json') {
         return jsonFormat($tree);
     }
 }
