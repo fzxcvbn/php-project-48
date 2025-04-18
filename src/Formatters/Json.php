@@ -2,7 +2,7 @@
 
 namespace Json;
 
-function jsonFormat($tree)
+function jsonFormat(array $tree): string
 {
     return json_encode($tree);
 }
