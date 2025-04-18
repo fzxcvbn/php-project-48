@@ -13,8 +13,8 @@ function genDiff(string $firstFile, string $secondFile, string $formatter = 'sty
     $extensionFirst = pathinfo($firstFile, PATHINFO_EXTENSION);
     $extensionSecond = pathinfo($secondFile, PATHINFO_EXTENSION);
 
-    $firstFile1 = file_get_contents($firstFile);
-    $secondFile2 = file_get_contents($secondFile);
+    $firstFile1 = (string) file_get_contents($firstFile);
+    $secondFile2 = (string) file_get_contents($secondFile);
 
     $conventing1 = convertingFile($firstFile1, $extensionFirst);
     $conventing2 = convertingFile($secondFile2, $extensionSecond);
@@ -28,6 +28,8 @@ function genDiff(string $firstFile, string $secondFile, string $formatter = 'sty
     }
     if ($formatter === 'json') {
         return jsonFormat($tree);
+    } else {
+        throw new \Exception("Invalid formatter. The format should be 'stylish' , 'plain' or 'json'");
     }
 }
 
