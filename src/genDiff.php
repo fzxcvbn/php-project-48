@@ -8,7 +8,7 @@ use function Plain\plain;
 use function Functional\sort;
 use function Json\jsonFormat;
 
-function genDiff($firstFile, $secondFile, $formatter = 'stylish')
+function genDiff(string $firstFile, string $secondFile, string $formatter = 'stylish'): string
 {
     $extensionFirst = pathinfo($firstFile, PATHINFO_EXTENSION);
     $extensionSecond = pathinfo($secondFile, PATHINFO_EXTENSION);
@@ -31,7 +31,7 @@ function genDiff($firstFile, $secondFile, $formatter = 'stylish')
     }
 }
 
-function difference($conventing1, $conventing2)
+function difference(object $conventing1, object $conventing2): array
 {
     $dataFile1 = get_object_vars($conventing1);
     $dataFile2 = get_object_vars($conventing2);

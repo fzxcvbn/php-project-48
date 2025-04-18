@@ -2,12 +2,12 @@
 
 namespace Stylish;
 
-function stylish($tree)
+function stylish(array $tree): string
 {
     return generate($tree);
 }
 
-function generate($tree, $depth = 0)
+function generate(array $tree, int $depth = 0): string
 {
     $indents = createIndentation($depth, 4);
     $result = array_map(function ($item) use ($depth, $indents) {
@@ -35,12 +35,12 @@ function generate($tree, $depth = 0)
     return '{' . "\n" . implode("", $result) . $indents . '}';
 }
 
-function createIndentation($depth, $numberOfIndents)
+function createIndentation(int $depth, int $numberOfIndents): string
 {
     return str_repeat(" ", $depth * $numberOfIndents);
 }
 
-function stringing($dataValue, $depth)
+function stringing(array $dataValue, int $depth): string
 {
     $value = $dataValue[0];
     if (is_bool($value)) {

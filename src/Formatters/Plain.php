@@ -4,14 +4,14 @@ namespace Plain;
 
 use function Functional\flatten;
 
-function plain($tree)
+function plain(array $tree): string
 {
     $lines = generate($tree, '');
     $joinedLine = implode("\n", flatten($lines));
     return "$joinedLine";
 }
 
-function generate($tree, $path)
+function generate(array $tree, string $path): array
 {
     return array_map(function ($node) use ($path) {
         switch ($node['type']) {
@@ -34,7 +34,7 @@ function generate($tree, $path)
     }, $tree);
 }
 
-function stringify($dataValue)
+function stringify(array $dataValue): string
 {
     $value = $dataValue[0];
     if (is_object($value)) {
