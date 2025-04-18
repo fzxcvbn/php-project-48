@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\test;
+namespace tests\DiffTest;
 
 use PHPUnit\Framework\TestCase;
 
@@ -29,6 +29,14 @@ class DiffTest extends TestCase
 
         $actual = genDiff($firstYml, $secondYml, 'plain');
         $expected = 'tests/fixtures/resultPlain';
+        $this->assertEquals($expected, $actual);
+
+        $actual = genDiff($firstJson, $secondJson, 'json');
+        $expected = 'tests/fixtures/resultJson';
+        $this->assertEquals($expected, $actual);
+
+        $actual = genDiff($firstYml, $secondYml, 'json');
+        $expected = 'tests/fixtures/resultJson';
         $this->assertEquals($expected, $actual);
     }
 }

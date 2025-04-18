@@ -6,6 +6,7 @@ use function Parsers\convertingFile;
 use function Stylish\stylish;
 use function Plain\plain;
 use function Functional\sort;
+use function Json\jsonFormat;
 
 function genDiff($firstFile, $secondFile, $formatter = 'stylish')
 {
@@ -24,6 +25,9 @@ function genDiff($firstFile, $secondFile, $formatter = 'stylish')
     }
     if ($formatter == 'plain') {
         return plain($tree);
+    }
+    if ($formatter == 'json') {
+        return jsonFormat($tree);
     }
 }
 

@@ -105,4 +105,5 @@ return array(
     '0a4844c804ca3f8d2e5e453905ea2939' => $baseDir . '/src/Parsers.php',
     '6461b807e4ee82eefd6a0289818be010' => $baseDir . '/src/Formatters/Stylish.php',
     'd050924b2f042a7e8991c637b1d4747e' => $baseDir . '/src/Formatters/Plain.php',
+    'df22d1c2c4acb22e203a3939434f5508' => $baseDir . '/src/Formatters/Json.php',
 );
