@@ -1,6 +1,6 @@
 <?php
 
-namespace genDiff;
+namespace Differ\Differ;
 
 use function Parsers\convertingFile;
 use function Stylish\stylish;
