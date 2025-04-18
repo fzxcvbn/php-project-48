@@ -8,7 +8,7 @@ use function Plain\plain;
 use function Functional\sort;
 use function Json\jsonFormat;
 
-function genDiff(string $firstFile, string $secondFile, string $formatter = 'stylish')
+function genDiff(string $firstFile, string $secondFile, string $formatter = 'stylish'): string
 {
     $extensionFirst = pathinfo($firstFile, PATHINFO_EXTENSION);
     $extensionSecond = pathinfo($secondFile, PATHINFO_EXTENSION);

@@ -13,5 +13,7 @@ function convertingFile(string $fileContent, string $extension): object
             return Yaml::parse($fileContent, Yaml::PARSE_OBJECT_FOR_MAP);
         case 'yml':
             return Yaml::parse($fileContent, Yaml::PARSE_OBJECT_FOR_MAP);
+        default:
+            throw new \Exception("Invalid extension. Extension must be in JSON, YAML or YML");
     }
 }
