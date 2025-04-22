@@ -1,11 +1,23 @@
-name: show-directory
+name: Differ
 on: push
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: composer exec --verbose phpcs -- --standard=PSR12 src bin
-      - name: My project check
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v4
         with:
+          php-version: '8.3'
+      - name: Install
+        run: make install
+      - name: Run linter
+        run: make lint
+      - name: Run test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          coverageLocations: ${{github.workplace}}/build/logs/clover.xml:clover
+          debug: true
