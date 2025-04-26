@@ -8,7 +8,7 @@ use function Differ\Differ\genDiff;
 
 class DiffTest extends TestCase
 {
-    public function testGenDiff($firstPath, $secondPath, $expected, $style = 'stylish')
+    public function testGenDiff()
     {
         $firstJson = 'tests/fixtures/file1Tree.json';
         $secondJson = 'tests/fixtures/file2Tree.json';
