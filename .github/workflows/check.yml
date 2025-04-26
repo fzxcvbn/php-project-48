@@ -1,23 +1,19 @@
-name: Differ
-on: push
+name: Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  build:
+  sonarqube:
+    name: SonarQube
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@v4
         with:
-          php-version: '8.3'
-      - name: Install
-        run: make install
-      - name: Run linter
-        run: make lint
-      - name: Run test & publish code coverage
-        uses: paambaati/codeclimate-action@v2.6.0
+          fetch-depth: 0
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          coverageLocations: ${{github.workplace}}/build/logs/clover.xml:clover
-          debug: true
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
