@@ -103,7 +103,7 @@ return array(
     'ed68e79e67321b486d441991e1eed26a' => $vendorDir . '/lstrojny/functional-php/src/Functional/ZipAll.php',
     '7a4aeb08a83e98b8597ede2cef7feeff' => $baseDir . '/src/Differ.php',
     '0a4844c804ca3f8d2e5e453905ea2939' => $baseDir . '/src/Parsers.php',
-    'b0ed28994c09cf4b33b64952ee6841d9' => $baseDir . '/src/Formatters.php',
+    '69532da255bf29893da8007b5002c6d2' => $baseDir . '/src/Formatter.php',
     '6461b807e4ee82eefd6a0289818be010' => $baseDir . '/src/Formatters/Stylish.php',
     'd050924b2f042a7e8991c637b1d4747e' => $baseDir . '/src/Formatters/Plain.php',
     'df22d1c2c4acb22e203a3939434f5508' => $baseDir . '/src/Formatters/Json.php',
