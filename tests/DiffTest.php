@@ -16,27 +16,27 @@ class DiffTest extends TestCase
         $secondYml = 'tests/fixtures/file2Tree.yml';
 
         $actual = genDiff($firstJson, $secondJson, 'stylish');
-        $expected = 'tests/fixtures/resultStylish';
+        $expected = file_get_contents('tests/fixtures/resultStylish');
         $this->assertEquals($expected, $actual);
 
         $actual = genDiff($firstYml, $secondYml, 'stylish');
-        $expected = 'tests/fixtures/resultStylish';
+        $expected = file_get_contents('tests/fixtures/resultStylish');
         $this->assertEquals($expected, $actual);
 
         $actual = genDiff($firstJson, $secondJson, 'plain');
-        $expected = 'tests/fixtures/resultPlain';
+        $expected = file_get_contents('tests/fixtures/resultPlain');
         $this->assertEquals($expected, $actual);
 
         $actual = genDiff($firstYml, $secondYml, 'plain');
-        $expected = 'tests/fixtures/resultPlain';
+        $expected = file_get_contents('tests/fixtures/resultPlain');
         $this->assertEquals($expected, $actual);
 
         $actual = genDiff($firstJson, $secondJson, 'json');
-        $expected = 'tests/fixtures/resultJson';
+        $expected = file_get_contents('tests/fixtures/resultJson');
         $this->assertEquals($expected, $actual);
 
         $actual = genDiff($firstYml, $secondYml, 'json');
-        $expected = 'tests/fixtures/resultJson';
+        $expected = file_get_contents('tests/fixtures/resultJson');
         $this->assertEquals($expected, $actual);
     }
 }
