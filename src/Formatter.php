@@ -8,15 +8,14 @@ use function Json\jsonFormat;
 
 function makeFormat(array $tree, string $formatter): string
 {
-    if ($formatter === 'stylish') {
-        return stylish($tree);
-    }
-    if ($formatter === 'plain') {
-        return plain($tree);
-    }
-    if ($formatter === 'json') {
-        return jsonFormat($tree);
-    } else {
-        throw new \Exception("Invalid formatter. The format should be 'stylish' , 'plain' or 'json'");
+    switch ($formatter) {
+        case 'stylish':
+            return stylish($tree);
+        case 'plain':
+            return plain($tree);
+        case 'json':
+            return jsonFormat($tree);
+        default:
+            throw new \Exception("Invalid formatter. The format should be 'stylish' , 'plain' or 'json'");
     }
 }
